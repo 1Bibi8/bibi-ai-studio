@@ -533,13 +533,13 @@
           </svg>
         </button>
 
-        <!-- 6. Profilul Meu Tab (with Google Account Gemini Session Indicator) -->
+        <!-- 6. Profilul Meu Tab (manual Gemini workflow status) -->
         <button
           onclick="openProfileModal()"
-          title="Profilul Meu (Login Google Mail pentru Gemini, Permisiuni Cloudy & PIN 2801)"
+          title="Profilul Meu (Gemini manual, Permisiuni Cloudy & PIN)"
           class="liquid-pill px-2.5 py-2 rounded-xl text-xs font-semibold hover:bg-[#FF6B1A]/20 text-orange-100 border-[#FF6B1A]/40 transition shrink-0 flex items-center gap-1.5"
         >
-          <span id="headerGeminiStatusDot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span id="headerGeminiStatusDot" class="w-2 h-2 rounded-full bg-amber-300"></span>
           <svg class="w-4 h-4 text-[#FF8A3D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
             <circle cx="12" cy="7" r="4"/>
@@ -794,7 +794,7 @@
               onclick="sendUserMessage()"
               class="cosmic-btn shrink-0 h-[44px] px-4 rounded-2xl font-bold text-sm flex items-center justify-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <span>Trimite</span>
+              <span>Pregătește</span>
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <line x1="22" y1="2" x2="11" y2="13"/>
                 <polygon points="22 2 15 22 11 13 2 9 22 2"/>
@@ -1104,9 +1104,9 @@
           <div>
             <div class="flex items-center gap-2">
               <h3 class="text-base font-bold text-white">Profilul Meu — Sava Bianca Maria (Bibi)</h3>
-              <span id="profileConnectionBadge" class="font-mono text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Cont Google Conectat ✓</span>
+              <span id="profileConnectionBadge" class="font-mono text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-200 border border-amber-500/40">Gemini manual</span>
             </div>
-            <p class="text-xs text-orange-200/70">Google Account & Drive: savabianca23@stud.ase.ro • Acces Agenți Gemini & Cloudy</p>
+            <p class="text-xs text-orange-200/70">Drive: savabianca23@stud.ase.ro • Gemini: copiere manuală</p>
           </div>
         </div>
         <button onclick="closeProfileModal()" class="p-1.5 rounded-xl text-orange-200 hover:bg-[#FF6B1A]/20 hover:text-white transition">✕</button>
@@ -1123,7 +1123,7 @@
           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
             <path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81Z"/>
           </svg>
-          <span>Login Google & Acces Gemini</span>
+          <span>Gemini manual & Setări</span>
         </button>
         <button
           type="button"
@@ -1136,107 +1136,39 @@
       </div>
 
       <div class="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
-        <!-- TAB 1: GOOGLE ACCOUNT LOGIN & GEMINI AGENT ACCESS -->
+        <!-- TAB 1: MANUAL GEMINI WORKFLOW -->
         <div id="profileTabGoogleContent" class="space-y-4">
           <div class="p-4 rounded-2xl bg-[#0B0705]/90 border border-[#FF6B1A]/45 space-y-3.5">
             <div class="flex items-center justify-between gap-2 flex-wrap">
-              <h4 class="font-mono text-xs uppercase tracking-wider text-[#FF8A3D] font-bold">Conectare Cont Google (Gmail → Gemini)</h4>
-              <span id="googleAuthPill" class="font-mono text-[10.5px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">● Sesiune Activă</span>
+              <h4 class="font-mono text-xs uppercase tracking-wider text-[#FF8A3D] font-bold">Gemini Free — flux manual</h4>
+              <span id="googleAuthPill" class="font-mono text-[10.5px] px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-200 border border-amber-500/40">● Copiere manuală</span>
             </div>
 
             <p class="text-xs text-orange-100/80 leading-relaxed">
-              Conectează-ți contul de <strong>Google Mail</strong> pentru a autoriza automat toți agenții de pe <strong>UNI</strong> și <strong>DEVELOP</strong> să folosească sesiunea ta <strong>Google Gemini</strong> și <strong>Google Drive</strong>, fără chei API manuale.
+              Site-ul nu se conectează la sesiunea Gemini și nu folosește API. Trimite cerința agentului, copiază promptul generat în Gemini în browserul tău, apoi lipește răspunsul în chat pentru a-l putea preda următorului agent.
             </p>
 
-            <!-- Google Account Card -->
             <div id="googleAccountCard" class="p-3.5 rounded-2xl bg-[#160F0A] border border-[rgba(255,175,120,0.28)] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div class="flex items-center gap-3 min-w-0">
-                <div class="w-11 h-11 rounded-full bg-white text-[#0C0806] flex items-center justify-center shrink-0 shadow">
-                  <svg class="w-6 h-6" viewBox="0 0 24 24">
-                    <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.8C6.2 7.2 8.9 5 12 5z"/>
-                    <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.7-.2-2.5H12v4.8h6.5c-.3 1.5-1.1 2.8-2.4 3.6l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/>
-                    <path fill="#FBBC05" d="M5.3 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.6 7.4C.6 9.4 0 11.6 0 14s.6 4.6 1.6 6.6l3.7-2.8z"/>
-                    <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.1-6.7-5l-3.7 2.8C3.5 20.4 7.4 23 12 23z"/>
-                  </svg>
-                </div>
                 <div class="min-w-0">
-                  <div class="text-sm font-bold text-white truncate" id="googleConnectedName">Sava Bianca Maria</div>
-                  <div class="font-mono text-xs text-[#FF9E5E] truncate" id="googleConnectedEmailDisplay">savabianca23@stud.ase.ro</div>
-                  <div class="text-[11px] text-emerald-300/90 mt-0.5" id="googleConnectedScopeText">✓ Acces Gemini AI & Google Drive acordat agenților</div>
+                  <div class="text-sm font-bold text-white truncate">Contul pe care îl folosești în Gemini</div>
+                  <div class="font-mono text-xs text-[#FF9E5E] truncate">savabianca23@stud.ase.ro</div>
+                  <div class="text-[11px] text-amber-200/90 mt-0.5">Conectarea se face direct pe gemini.google.com, nu în acest site.</div>
                 </div>
               </div>
-
-              <div class="flex items-center gap-2 shrink-0">
-                <button
-                  type="button"
-                  id="googleSignInActionBtn"
-                  onclick="toggleGoogleGeminiLogin()"
-                  class="cosmic-btn px-3.5 py-2 rounded-xl text-xs font-extrabold whitespace-nowrap"
-                >
-                  Reautorizează / Schimbă Cont
-                </button>
-              </div>
-            </div>
-
-            <!-- Email Input / Switcher for Google Login -->
-            <div class="pt-1 space-y-2">
-              <label class="block font-mono text-[10.5px] uppercase tracking-wider text-orange-200/75">Adresă Google Mail conectată la Gemini:</label>
-              <div class="flex flex-col sm:flex-row gap-2">
-                <input
-                  type="email"
-                  id="profileGoogleEmailInput"
-                  value="savabianca23@stud.ase.ro"
-                  placeholder="savabianca23@stud.ase.ro"
-                  class="flex-1 rounded-xl bg-[#160F0A] border border-[rgba(255,175,120,0.28)] focus:border-[#FF6B1A] text-xs font-mono text-white px-3.5 py-2.5 outline-none"
-                />
-                <button
-                  type="button"
-                  onclick="connectGoogleAccountForGemini()"
-                  class="cosmic-btn px-4 py-2.5 rounded-xl text-xs font-extrabold whitespace-nowrap flex items-center justify-center gap-1.5"
-                >
-                  <span>Conectează cu Google ✓</span>
-                </button>
-                <button
-                  type="button"
-                  id="googleDisconnectBtn"
-                  onclick="disconnectGoogleAccountForGemini()"
-                  class="liquid-pill px-3 py-2.5 rounded-xl text-xs font-semibold text-rose-300 hover:bg-rose-950/60 border-rose-500/35 whitespace-nowrap"
-                >
-                  Deconectează
-                </button>
-              </div>
-              <label class="block font-mono text-[10.5px] uppercase tracking-wider text-orange-200/75 pt-2">Cheie API Gemini pentru agenți:</label>
-              <div class="flex flex-col sm:flex-row gap-2">
-                <input
-                  type="password"
-                  id="profileGeminiApiKeyInput"
-                  autocomplete="off"
-                  placeholder="Introdu cheia API Gemini"
-                  class="flex-1 rounded-xl bg-[#160F0A] border border-[rgba(255,175,120,0.28)] focus:border-[#FF6B1A] text-xs font-mono text-white px-3.5 py-2.5 outline-none"
-                />
-                <button
-                  type="button"
-                  onclick="saveGeminiApiKey()"
-                  class="cosmic-btn px-4 py-2.5 rounded-xl text-xs font-extrabold whitespace-nowrap"
-                >
-                  Salvează & Activează Gemini
-                </button>
-              </div>
-              <p class="text-[10.5px] text-orange-100/60 leading-relaxed">
-                Cheia este păstrată doar în această sesiune de browser și este folosită de toți agenții UNI & DEVELOP. E-mailul identifică contul: <strong class="text-orange-200">savabianca23@stud.ase.ro</strong>.
-              </p>
+              <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="cosmic-btn px-3.5 py-2 rounded-xl text-xs font-extrabold whitespace-nowrap text-center">Deschide Gemini ↗</a>
             </div>
 
             <!-- Agent Access Permissions Matrix -->
             <div class="p-3 rounded-xl bg-[#160F0A]/90 border border-white/10 space-y-2">
               <div class="flex items-center justify-between">
-                <span class="font-mono text-[10.5px] uppercase tracking-wider text-orange-200/80 font-bold">Permisiuni acordate agenților prin contul Google:</span>
-                <span class="font-mono text-[10px] text-emerald-300">Activ pe toate etajele</span>
+                <span class="font-mono text-[10.5px] uppercase tracking-wider text-orange-200/80 font-bold">Preferințe:</span>
+                <span class="font-mono text-[10px] text-amber-200">Gemini manual</span>
               </div>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                 <label class="flex items-center gap-2 text-orange-100/90 cursor-pointer">
-                  <input type="checkbox" id="permGeminiChatCheckbox" checked onchange="updateGoogleAgentPermissions()" class="accent-[#FF6B1A] rounded" />
-                  <span>Acces Gemini AI (UNI & DEVELOP)</span>
+                  <input type="checkbox" id="permGeminiChatCheckbox" checked disabled class="accent-[#FF6B1A] rounded" />
+                  <span>Prompturi Gemini (copiere/lipire)</span>
                 </label>
                 <label class="flex items-center gap-2 text-orange-100/90 cursor-pointer">
                   <input type="checkbox" id="permGoogleDriveCheckbox" checked onchange="updateGoogleAgentPermissions()" class="accent-[#FF6B1A] rounded" />
@@ -1244,7 +1176,7 @@
                 </label>
                 <label class="flex items-center gap-2 text-orange-100/90 cursor-pointer">
                   <input type="checkbox" id="permGoogleSearchCheckbox" checked onchange="updateGoogleAgentPermissions()" class="accent-[#FF6B1A] rounded" />
-                  <span>Căutare Google Grounding (Research)</span>
+                  <span>Căutare web în prompt</span>
                 </label>
                 <label class="flex items-center gap-2 text-orange-100/90 cursor-pointer">
                   <input type="checkbox" id="permGoogleGemsCheckbox" checked onchange="updateGoogleAgentPermissions()" class="accent-[#FF6B1A] rounded" />
@@ -1683,7 +1615,7 @@ Structurează răspunsul cu:
       profile: {
         displayName: 'Sava Bianca Maria',
         driveEmail: DRIVE_TARGET_EMAIL,
-        googleAccountConnected: true,
+        googleAccountConnected: false,
         googleAccountEmail: DRIVE_TARGET_EMAIL,
         googlePermissions: {
           geminiChat: true,
@@ -1767,7 +1699,7 @@ Structurează răspunsul cu:
             state.profile = {
               ...state.profile,
               ...parsed.profile,
-              googleAccountConnected: parsed.profile.googleAccountConnected !== false,
+              googleAccountConnected: false,
               googleAccountEmail: DRIVE_TARGET_EMAIL,
               driveEmail: DRIVE_TARGET_EMAIL,
               googlePermissions: {
@@ -1850,7 +1782,7 @@ Structurează răspunsul cu:
       let total = 0;
       Object.values(chatsObj).forEach(msgs => {
         if (Array.isArray(msgs)) {
-          total += msgs.filter(m => !m.isWelcome).length;
+          total += msgs.filter(m => !m.isWelcome && !m.isManualPrompt).length;
         }
       });
       return total;
@@ -2126,13 +2058,13 @@ Structurează răspunsul cu:
     function getLatestProjectOutputText(preferredAgentIds = []) {
       for (const agId of preferredAgentIds) {
         const msgs = state.currentProject.chats[agId] || [];
-        const reply = [...msgs].reverse().find(m => m.role === 'model' && !m.isWelcome);
+        const reply = [...msgs].reverse().find(m => m.role === 'model' && !m.isWelcome && !m.isManualPrompt);
         if (reply) return { agentName: getAgent(agId).fullName, text: reply.text };
       }
       const sections = [];
       state.agents.forEach(ag => {
         const msgs = state.currentProject.chats[ag.id] || [];
-        const replies = msgs.filter(m => m.role === 'model' && !m.isWelcome);
+        const replies = msgs.filter(m => m.role === 'model' && !m.isWelcome && !m.isManualPrompt);
         if (replies.length > 0) {
           sections.push(`=== ${ag.fullName} ===\n\n${replies[replies.length - 1].text}`);
         }
@@ -2917,10 +2849,16 @@ Structurează răspunsul cu:
       const history = getChatHistory();
       let lastGeneratedIdx = -1;
       for (let i = history.length - 1; i >= 0; i--) {
-        if (history[i].role === 'model' && !history[i].isWelcome) {
+        if (history[i].role === 'model' && !history[i].isWelcome && !history[i].isManualPrompt) {
           lastGeneratedIdx = i;
           break;
         }
+      }
+
+      const pendingPromptIdx = history.findIndex(message => message.isManualPrompt && message.manualPending);
+      if (pendingPromptIdx > lastGeneratedIdx) {
+        bar.classList.add('hidden');
+        return;
       }
 
       if (lastGeneratedIdx === -1) {
@@ -2961,7 +2899,7 @@ Structurează răspunsul cu:
             onclick="handoffMessageToNext(${lastGeneratedIdx}, true)"
             class="cosmic-btn px-3 py-1 rounded-xl text-[11px] font-bold flex items-center gap-1"
           >
-            <span>Pasează & Generează Automat ⚡</span>
+            <span>Pasează & Pregătește promptul ⚡</span>
           </button>
         `;
       } else if (currentAg.id === 'creator') {
@@ -3013,6 +2951,29 @@ Structurează răspunsul cu:
           const { cleanText, hireSpec, cloudyAction } = extractStructuredActionBlocks(msg.text);
 
           let specialActionCardHtml = '';
+
+          if (msg.isManualPrompt) {
+            specialActionCardHtml += `
+              <div class="mt-3 p-3.5 rounded-2xl bg-[#0C0806]/90 border border-amber-500/45 space-y-2.5">
+                <div class="font-mono text-[10px] uppercase tracking-wider text-amber-200 font-bold">Continuă în Gemini Free</div>
+                ${
+                  msg.manualPending
+                    ? `<p class="text-xs text-orange-100/80">1. Copiază promptul. 2. Deschide Gemini și trimite-l. 3. Lipește răspunsul aici pentru a-l preda mai departe.</p>
+                      <div class="flex flex-wrap gap-2">
+                        <button onclick="copyManualPrompt(${idx})" class="cosmic-btn px-3 py-2 rounded-xl text-xs font-bold">📋 Copiază promptul complet</button>
+                        <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="liquid-pill px-3 py-2 rounded-xl text-xs font-semibold text-orange-100 border-[#FF6B1A]/45">Deschide Gemini ↗</a>
+                      </div>
+                      <details class="text-xs text-orange-100/80">
+                        <summary class="cursor-pointer">Afișează promptul pentru copiere manuală</summary>
+                        <textarea readonly rows="6" class="mt-2 w-full rounded-xl bg-[#160F0A] border border-white/10 text-xs text-white px-3 py-2 resize-y">${escapeHtml(msg.manualPrompt || '')}</textarea>
+                      </details>
+                      <textarea id="manualGeminiReply_${idx}" rows="5" placeholder="Lipește aici răspunsul complet primit de la Gemini..." class="w-full rounded-xl bg-[#160F0A] border border-[rgba(255,175,120,0.28)] focus:border-[#FF6B1A] text-sm text-white px-3 py-2 outline-none resize-y"></textarea>
+                      <button onclick="submitGeminiManualReply(${idx})" class="cosmic-btn w-full px-3 py-2 rounded-xl text-xs font-bold">Adaugă răspunsul în chat</button>`
+                    : `<p class="text-xs text-emerald-200">Răspunsul Gemini a fost adăugat mai jos în conversație.</p>`
+                }
+              </div>
+            `;
+          }
 
           if (hireSpec) {
             const targetFloorLabel = hireSpec.floor === 'develop' ? 'ETAJ 2 • DEVELOP' : 'ETAJ 1 • UNI';
@@ -3075,7 +3036,7 @@ Structurează răspunsul cu:
           }
 
           let creatorVisualPreviewHtml = '';
-          if (activeAg.id === 'creator' && !msg.isWelcome) {
+          if (activeAg.id === 'creator' && !msg.isWelcome && !msg.isManualPrompt) {
             creatorVisualPreviewHtml = `
               <div class="mt-3 p-3 rounded-2xl bg-[#0B0705]/90 border border-[#34D399]/45 space-y-2">
                 <div class="flex items-center justify-between gap-2">
@@ -3106,7 +3067,7 @@ Structurează răspunsul cu:
           }
 
           let bottomFooterHtml = '';
-          if (!msg.isWelcome) {
+          if (!msg.isWelcome && !msg.isManualPrompt) {
             if (activeAg.id === 'support') {
               bottomFooterHtml = `
                 <div class="mt-3 pt-2.5 border-t border-[rgba(255,175,120,0.20)] flex flex-wrap items-center justify-between gap-2">
@@ -3163,7 +3124,7 @@ Structurează răspunsul cu:
                       onclick="handoffMessageToNext(${idx}, true)"
                       class="cosmic-btn text-[11px] font-bold px-3 py-1.5 rounded-xl flex items-center gap-1"
                     >
-                      <span>Pasează & Generează Automat ⚡</span>
+                      <span>Pasează & Pregătește promptul ⚡</span>
                     </button>
                   </div>
                 </div>
@@ -3197,7 +3158,7 @@ Structurează răspunsul cu:
                     <span class="text-xs font-bold text-white">${escapeHtml(activeAg.shortName)}</span>
                     <span class="font-mono text-[10px] text-orange-200/55">${msg.timestamp || ''}</span>
                   </div>
-                  ${!msg.isWelcome ? `
+                  ${!msg.isWelcome && !msg.isManualPrompt ? `
                     <button
                       onclick="copyMessageText(${idx})"
                       class="font-mono text-[10px] px-2 py-0.5 rounded-lg bg-white/5 hover:bg-[#FF6B1A]/20 text-orange-200 border border-white/10 transition"
@@ -3208,7 +3169,7 @@ Structurează răspunsul cu:
                 </div>
 
                 <div class="md-content text-[13.5px] text-orange-50/95">
-                  ${!msg.isWelcome ? `
+                  ${!msg.isWelcome && !msg.isManualPrompt ? `
                     <div class="mb-2.5 flex items-center gap-1.5">
                       <span class="font-mono text-[9.5px] uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#34D399]/12 text-[#6EE7B7] border border-[#34D399]/30">
                         ✓ Livrabil final
@@ -3309,7 +3270,7 @@ Structurează răspunsul cu:
       const history = getChatHistory();
       let lastIdx = -1;
       for (let i = history.length - 1; i >= 0; i--) {
-        if (history[i].role === 'model' && !history[i].isWelcome) {
+        if (history[i].role === 'model' && !history[i].isWelcome && !history[i].isManualPrompt) {
           lastIdx = i;
           break;
         }
@@ -3347,7 +3308,7 @@ Structurează răspunsul cu:
         input.style.height = Math.min(input.scrollHeight, 144) + 'px';
 
         if (autoSend) {
-          showToast(`⚡ Handoff automat către ${nextAg.shortName}!`);
+          showToast(`⚡ Promptul este pregătit pentru ${nextAg.shortName}!`);
           sendUserMessage();
         } else {
           showToast(`Rezultat transferat către ${nextAg.shortName} →`);
@@ -3799,79 +3760,61 @@ Structurează răspunsul cu:
     }
 
     // =========================================================================
-    // 11. GEMINI API INTEGRATION (GOOGLE ACCOUNT SESSION + INTELLIGENT FALLBACK)
+    // 11. MANUAL GEMINI WORKFLOW
     // =========================================================================
-    async function callGeminiWithBackoff(payload, maxRetries = 3) {
-      if (!state.profile.googleAccountConnected || !state.profile.googlePermissions?.geminiChat) {
-        throw new Error('Contul Google nu este conectat sau accesul agenților la Gemini este oprit. Deschide „Profilul Meu → Login Google & Acces Gemini” și conectează contul.');
-      }
+    function buildGeminiManualPrompt(agent, history, systemInstructionText) {
+      const conversation = history
+        .filter(message => !message.isWelcome && !message.isManualPrompt)
+        .map(message => `${message.role === 'user' ? 'UTILIZATOR' : 'RĂSPUNS ANTERIOR'}:\n${message.text}`)
+        .join('\n\n');
 
-      const apiKey = (sessionStorage.getItem('BIBI_GEMINI_API_KEY') || '').trim();
-      if (!apiKey) {
-        throw new Error('Lipsește cheia API Gemini. Deschide „Profilul Meu → Login Google & Acces Gemini”, introdu cheia API asociată contului savabianca23@stud.ase.ro și apasă „Salvează & Activează Gemini”.');
-      }
-      const modelsToTry = ['gemini-3-flash-preview', 'gemini-2.5-flash'];
+      return `Ești ${agent.fullName || agent.shortName} în Bibi's AI Studio.
 
-      for (const modelName of modelsToTry) {
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
-        let delay = 1000;
+INSTRUCȚIUNI ȘI SKILL-URI:
+${systemInstructionText}
 
-        for (let attempt = 0; attempt <= maxRetries; attempt++) {
-          try {
-            const response = await fetch(apiUrl, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(payload)
-            });
+ISTORICUL CONVERSAȚIEI:
+${conversation}
 
-            if (!response.ok) {
-              if ((response.status === 404 || response.status === 400) && modelName !== modelsToTry[modelsToTry.length - 1]) {
-                break;
-              }
-              if ((response.status === 429 || response.status >= 500) && attempt < maxRetries) {
-                await new Promise(res => setTimeout(res, delay));
-                delay *= 2;
-                continue;
-              }
-              const errData = await response.json().catch(() => ({}));
-              throw new Error(errData?.error?.message || `Eroare HTTP ${response.status} pe sesiunea Google (${state.profile.googleAccountEmail}).`);
-            }
+Execută acum ultima cerință a utilizatorului. Respectă instrucțiunile rolului și oferă livrabilul complet, cu secțiunea „LIVRARE PENTRU URMĂTORUL AGENT” când este relevant. Nu pretinde că ai accesat fișiere, conturi sau surse pe care nu le-ai verificat.`;
+    }
 
-            return await response.json();
-          } catch (err) {
-            if (attempt === maxRetries && modelName === modelsToTry[modelsToTry.length - 1]) {
-              throw err;
-            }
-            if (attempt < maxRetries) {
-              await new Promise(res => setTimeout(res, delay));
-              delay *= 2;
-            }
-          }
-        }
+    function copyManualPrompt(messageIdx) {
+      const message = getChatHistory()[messageIdx];
+      if (message?.manualPrompt) {
+        copyToClipboard(message.manualPrompt, 'Promptul complet a fost copiat. Lipește-l în Gemini.');
       }
     }
 
-    function buildOfflineFallbackReply(agent, userText) {
-      const proj = state.currentProject.name;
-      const connectedEmail = state.profile.googleAccountEmail || DRIVE_TARGET_EMAIL;
-      if (agent.id === 'cloudy') {
-        const isGold = /gold/i.test(userText);
-        const isUltra = /ultra/i.test(userText);
-        const isPomodoro = /pomodoro|timer|cronometru/i.test(userText);
-        if (isPomodoro) {
-          return `Am pregătit planul pentru adăugarea funcției **Timer Pomodoro 25 min** în bara de sus a studioului. Apasă **„Da, implementeaza”** dacă ești de acord sau **„Nu, modifica”** dacă vrei altceva.\n\n\`\`\`cloudy_action\n{\n  "actionType": "add_feature",\n  "summary": "Adaugă buton interactiv ⏱️ Timer 25m în bara dashboard-ului",\n  "widgetId": "pomodoro_25",\n  "label": "⏱️ Timer 25m",\n  "featureType": "pomodoro"\n}\n\`\`\``;
-        }
-        return `Am pregătit planul de actualizare a interfeței (**${isGold ? 'Titanium Desert Gold' : 'Cosmic Orange'}**, **${isUltra ? 'Ultra Frosted Glass' : 'Standard Apple Glass'}**). Confirmă mai jos dacă dorești aplicarea:\n\n\`\`\`cloudy_action\n{\n  "actionType": "update_ui",\n  "summary": "Actualizare temă vizuală și intensitate Liquid Glass",\n  "accentTheme": "${isGold ? 'gold' : 'cosmic'}",\n  "glassIntensity": "${isUltra ? 'ultra' : 'standard'}",\n  "officeLayout": "standard"\n}\n\`\`\``;
+    function submitGeminiManualReply(messageIdx) {
+      const history = getChatHistory();
+      const promptMessage = history[messageIdx];
+      const replyInput = document.getElementById(`manualGeminiReply_${messageIdx}`);
+      const replyText = (replyInput?.value || '').trim();
+      if (!promptMessage?.isManualPrompt || !promptMessage.manualPending || !replyText) {
+        showToast('Lipește mai întâi răspunsul primit de la Gemini.');
+        return;
       }
 
-      if (agent.id === 'pm') {
-        return `## Livrabil Project Manager\n\n### Sarcină primită\n${userText}\n\n### Rezultatul analizei\n- **Obiectiv:** Structurarea cerinței proiectului și identificarea livrabilului final.\n- **Structură recomandată:** 1) Context și obiective; 2) Cerințe și barem; 3) Concepte teoretice; 4) Cercetare și surse; 5) Analiză/rezultate; 6) Concluzii și formatare finală.\n- **Regulă de limbă:** răspunsul proiectului va păstra limba cerinței.\n- **Skill-uri aplicate:** ${(agent.skills || []).join(', ')}\n\n### Brief de Research\nCaută informații riguroase și surse reale pentru obiectivul proiectului, cerințele și structura de mai sus. Extrage definiții, cadre teoretice, date verificabile și surse academice relevante; marchează clar concluziile care necesită referințe.\n\n### Cerințe pentru livrarea următoare\n- Confirmați baremul complet și numărul exact de pagini/cuvinte.\n- Furnizați cursuri, fișiere Word/PDF, linkuri sau alte materiale disponibile.\n- Menționați orice surse obligatorii impuse de profesor.\n\n## LIVRARE PENTRU URMĂTORUL AGENT\nPasează mai departe proiectul **„${proj}”**, structura pe 6 etape, baremul cunoscut și acest Brief de Research către Academic Researcher.`;
-      }
-
-      return `## Livrabil ${agent.shortName}\n\n### Sarcină primită\n${userText}\n\n### Lucrări executate\n- **Rol aplicat:** ${agent.fullName || agent.shortName}\n- **Skill-uri utilizate:** ${(agent.skills || []).join(', ') || 'Rol general'}\n- **Context:** proiectul **„${proj}”** pe sesiunea Google (\`${connectedEmail}\`).\n\n### Rezultat\nCererea a fost procesată conform instrucțiunilor rolului. Rezultatul complet trebuie verificat și completat cu informațiile suplimentare disponibile în proiect înainte de predarea către următorul agent.\n\n## LIVRARE PENTRU URMĂTORUL AGENT\nPasează obiectivul, cerința tratată, livrabilul de mai sus și materialele disponibile către următorul agent din flux.`;
+      promptMessage.manualPending = false;
+      promptMessage.text = 'Promptul a fost procesat în Gemini. Răspunsul complet este adăugat mai jos.';
+      history.push({
+        role: 'model',
+        text: replyText,
+        timestamp: formatTime(),
+        manualGeminiReply: true
+      });
+      state.agentStatuses[state.selectedAgentId] = {
+        text: 'Gata ✓ • Răspuns Gemini adăugat',
+        state: 'done'
+      };
+      persistState();
+      renderIsometricEntities();
+      renderFloorControlsAndCards();
+      renderChatMessages();
     }
 
-    async function sendUserMessage() {
+    function sendUserMessage() {
       const input = document.getElementById('chatInput');
       const text = input.value.trim();
       if (!text) return;
@@ -3879,187 +3822,62 @@ Structurează răspunsul cu:
       const agentId = state.selectedAgentId;
       const agent = getAgent(agentId);
       const history = getChatHistory(agentId);
+      if (history.some(message => message.isManualPrompt && message.manualPending)) {
+        showToast('Adaugă mai întâi răspunsul Gemini în chatul acestui agent.');
+        return;
+      }
 
-      history.push({
-        role: 'user',
-        text,
-        timestamp: formatTime()
-      });
-
+      history.push({ role: 'user', text, timestamp: formatTime() });
       input.value = '';
       input.style.height = 'auto';
 
+      const skillsLine = agent.skills?.length
+        ? `\nSkill-uri active: ${agent.skills.join(', ')}.`
+        : '';
+      const extraContext = agent.id === 'cloudy'
+        ? `\n\nStarea curentă a agenților:\n${state.agents.map(a => `- ${a.id}: ${a.shortName} (${a.floor})`).join('\n')}\nSetări UI: ${JSON.stringify(state.uiSettings)}`
+        : '';
+      const completionProtocol = `
+
+Protocol obligatoriu de livrare:
+1. Execută sarcina integral și returnează livrabilul complet, nu doar o confirmare.
+2. Organizează răspunsul cu titluri clare, rezultat, surse și limitări relevante.
+3. Project Manager trebuie să includă cerințele/baremul, structura proiectului și Brief-ul complet pentru Researcher.
+4. Încheie cu „LIVRARE PENTRU URMĂTORUL AGENT”, cu informațiile concrete necesare continuării.
+5. Respectă instrucțiunile rolului și limba cerinței.`;
+      const searchInstruction = document.getElementById('useSearchGrounding').checked
+        ? '\nPentru afirmații factuale, folosește căutarea web disponibilă în Gemini și oferă linkuri/surse verificabile.'
+        : '';
+      const systemInstructionText = `${agent.systemInstruction}${skillsLine}${extraContext}${completionProtocol}${searchInstruction}\n\nProiect activ: „${state.currentProject.name}”. Autor: Sava Bianca Maria.`;
+
+      history.push({
+        role: 'model',
+        text: 'Am pregătit promptul pentru Gemini. Folosește butoanele de mai jos, apoi lipește aici răspunsul complet primit.',
+        timestamp: formatTime(),
+        isManualPrompt: true,
+        manualPrompt: buildGeminiManualPrompt(agent, history, systemInstructionText),
+        manualPending: true
+      });
       state.agentStatuses[agentId] = {
-        text: agent.workingText || 'Lucrează...',
+        text: 'Așteaptă răspunsul din Gemini...',
         state: 'working'
       };
+      persistState();
       renderIsometricEntities();
       renderFloorControlsAndCards();
       renderChatMessages();
-
-      const messagesContainer = document.getElementById('chatMessagesContainer');
-      const typingId = 'typing_' + Date.now();
-      messagesContainer.insertAdjacentHTML('beforeend', `
-        <div id="${typingId}" class="liquid-pill flex items-center gap-2 text-xs font-mono text-orange-200 px-3.5 py-2 rounded-2xl w-fit">
-          <span class="w-2 h-2 rounded-full animate-ping" style="background-color: ${agent.color};"></span>
-          <span>${escapeHtml(agent.shortName)} generează răspunsul...</span>
-        </div>
-      `);
-      messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-      const sendBtn = document.getElementById('sendMessageBtn');
-      sendBtn.disabled = true;
-
-      try {
-        const apiContents = history
-          .filter(m => !m.isWelcome)
-          .map(m => ({
-            role: m.role === 'user' ? 'user' : 'model',
-            parts: [{ text: m.text }]
-          }));
-
-        let extraContext = '';
-        if (agent.id === 'cloudy') {
-          const agentsSummary = state.agents.map(a => `- id: "${a.id}", nume: "${a.shortName}", etaj: "${a.floor}", skill-uri: [${(a.skills || []).join(', ')}]`).join('\n');
-          extraContext = `\n\nStarea curentă a agenților din sistem:\n${agentsSummary}\nSetări UI curente: ${JSON.stringify(state.uiSettings)}`;
-        }
-
-        const skillsLine = agent.skills && agent.skills.length
-          ? `\nSkill-urile tale active: ${agent.skills.join(', ')}.`
-          : '';
-
-        const completionProtocol = `
-
-Protocol obligatoriu de livrare:
-1. Finalizează integral sarcina atribuită și afișează rezultatul complet direct în răspunsul de chat.
-2. Nu răspunde doar cu „gata”, „procesat” sau „poți continua”. Fiecare rezultat trebuie să conțină livrabilul real produs conform instruțiunilor și skill-urilor tale.
-3. Organizează răspunsul cu titluri clare, pași/sarcini executate, rezultat final și eventualele întrebări sau materiale lipsă.
-4. Dacă rolul este Project Manager, predă un livrabil complet pentru etapă: obiectiv, barem/cerințe, structura proiectului în capitole, limbă, livrabil final, fișiere necesare și Brief-ul de Research gata pentru următorul agent.
-5. La sfârșit, adaugă explicit secțiunea „LIVRARE PENTRU URMĂTORUL AGENT” cu informațiile esențiale care trebuie predate mai departe.
-6. Nu ascunde livrabilul în statusuri interne sau descrieri generale. Textul de mai jos este ceea ce utilizatorul va vedea în chat și va putea copia/preda agenților următori.`;
-
-        const systemInstructionText = `${agent.systemInstruction}${skillsLine}${extraContext}${completionProtocol}\n\nContext Proiect Activ: „${state.currentProject.name}” (Cont Google: ${state.profile.googleAccountEmail || DRIVE_TARGET_EMAIL}, Autor: Sava Bianca Maria). Dacă cerința utilizatorului este în limba engleză, răspunde în engleză; dacă este în română, răspunde în română.`;
-
-        const payload = {
-          contents: apiContents,
-          systemInstruction: {
-            parts: [{ text: systemInstructionText }]
-          }
-        };
-
-        const useSearch = document.getElementById('useSearchGrounding').checked;
-        if (useSearch) {
-          payload.tools = [{ google_search: {} }];
-        }
-
-        const result = await callGeminiWithBackoff(payload);
-        const candidate = result?.candidates?.[0];
-        const replyText = candidate?.content?.parts?.map(p => p.text || '').join('') || 'Nu am primit un răspuns valid. Încearcă din nou.';
-
-        let sources = [];
-        const attributions = candidate?.groundingMetadata?.groundingAttributions;
-        if (attributions && Array.isArray(attributions)) {
-          sources = attributions
-            .map(a => ({ uri: a.web?.uri, title: a.web?.title }))
-            .filter(s => s.uri && s.title);
-        }
-
-        history.push({
-          role: 'model',
-          text: replyText,
-          sources,
-          timestamp: formatTime()
-        });
-
-        state.agentStatuses[agentId] = {
-          text: 'Gata ✓ • Răspuns livrat',
-          state: 'done'
-        };
-        persistState();
-      } catch (error) {
-        const isGoogleConnected = state.profile.googleAccountConnected && state.profile.googlePermissions?.geminiChat;
-        const hasGeminiApiKey = Boolean((sessionStorage.getItem('BIBI_GEMINI_API_KEY') || '').trim());
-        if (!isGoogleConnected) {
-          history.push({
-            role: 'model',
-            text: `🔒 **Contul Google este deconectat:** Deschide **Profilul Meu → Login Google & Acces Gemini** și conectează contul tău Gmail pentru a permite agenților să acceseze Gemini.`,
-            timestamp: formatTime()
-          });
-          persistState();
-          state.agentStatuses[agentId] = {
-            text: 'Necesită Login Google',
-            state: 'idle'
-          };
-        } else if (!hasGeminiApiKey) {
-          history.push({
-            role: 'model',
-            text: `🔑 **Cheia API Gemini lipsește:** Deschide **Profilul Meu → Login Google & Acces Gemini**, introdu cheia API asociată contului **savabianca23@stud.ase.ro** și apasă **„Salvează & Activează Gemini”**.`,
-            timestamp: formatTime()
-          });
-          persistState();
-          state.agentStatuses[agentId] = {
-            text: 'Necesită Cheie API Gemini',
-            state: 'idle'
-          };
-        } else {
-          history.push({
-            role: 'model',
-            text: buildOfflineFallbackReply(agent, text),
-            timestamp: formatTime()
-          });
-          state.agentStatuses[agentId] = {
-            text: 'Gata ✓',
-            state: 'done'
-          };
-          persistState();
-        }
-      } finally {
-        const typingEl = document.getElementById(typingId);
-        if (typingEl) typingEl.remove();
-        sendBtn.disabled = false;
-        renderIsometricEntities();
-        renderFloorControlsAndCards();
-        renderChatMessages();
-      }
     }
 
-    async function optimizeUserPrompt() {
+    function optimizeUserPrompt() {
       const input = document.getElementById('chatInput');
       const rawPrompt = input.value.trim();
       const agent = getAgent(state.selectedAgentId);
-      const btn = document.getElementById('optimizePromptBtn');
-
       const seedIdea = rawPrompt || `Vreau să lucrez la proiectul „${state.currentProject.name}” folosind rolul tău de ${agent.shortName}.`;
-
-      const originalBtnHtml = btn.innerHTML;
-      btn.disabled = true;
-      btn.innerHTML = `<span>⏳ Se optimizează...</span>`;
-
-      try {
-        const optimizerSystem = `Ești un expert în Prompt Engineering. Primești o idee brută a utilizatorului și o transformi într-un prompt clar, structurat, detaliat și gata de trimis către agentul „${agent.fullName}” (Rol: ${agent.role}, Skill-uri: ${(agent.skills || []).join(', ')}) pentru proiectul „${state.currentProject.name}”. Returnează DOAR promptul optimizat în aceeași limbă cu ideea (română sau engleză), fără comentarii introductive.`;
-
-        const payload = {
-          contents: [{ parts: [{ text: `Ideea brută a utilizatorului: ${seedIdea}` }] }],
-          systemInstruction: { parts: [{ text: optimizerSystem }] }
-        };
-
-        const result = await callGeminiWithBackoff(payload);
-        const optimized = result?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
-
-        if (optimized) {
-          input.value = optimized;
-          input.style.height = 'auto';
-          input.style.height = Math.min(input.scrollHeight, 144) + 'px';
-          input.focus();
-          showToast('✨ Prompt optimizat pentru ' + agent.shortName + '!');
-        }
-      } catch (err) {
-        input.value = `Rol țintă: ${agent.fullName}\nProiect: ${state.currentProject.name}\nObiectiv: ${seedIdea}\nCerință: Respectă toate regulile de structură, surse reale și formatare ale rolului tău.`;
-        showToast('✨ Șablon structurat aplicat pentru ' + agent.shortName + '!');
-      } finally {
-        btn.disabled = false;
-        btn.innerHTML = originalBtnHtml;
-      }
+      input.value = `Rol: ${agent.fullName}\nSkill-uri: ${(agent.skills || []).join(', ')}\nProiect: ${state.currentProject.name}\nObiectiv și cerință: ${seedIdea}\n\nExecută complet cerința conform instrucțiunilor rolului. Include rezultatul final, sursele verificabile când sunt necesare și secțiunea „LIVRARE PENTRU URMĂTORUL AGENT”.`;
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 144) + 'px';
+      input.focus();
+      showToast('✨ Șablon de prompt pregătit pentru ' + agent.shortName + '!');
     }
 
     function handleChatKeydown(e) {
@@ -4072,22 +3890,36 @@ Protocol obligatoriu de livrare:
     // =========================================================================
     // 12. UTILITIES: CLIPBOARD, TOASTS, MARKDOWN PARSER
     // =========================================================================
-    function copyToClipboard(text, successMsg) {
+    async function copyToClipboard(text, successMsg) {
+      if (navigator.clipboard?.writeText) {
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast(successMsg);
+          return;
+        } catch (error) {
+          // Fall back to the selection-based copy path below.
+        }
+      }
+
       const textarea = document.createElement('textarea');
       textarea.value = text;
       textarea.style.position = 'fixed';
       textarea.style.opacity = '0';
       document.body.appendChild(textarea);
       textarea.select();
+      let copied = false;
       try {
-        document.execCommand('copy');
-        showToast(successMsg);
+        copied = document.execCommand('copy');
       } catch (e) {
-        if (navigator.clipboard) {
-          navigator.clipboard.writeText(text).then(() => showToast(successMsg));
-        }
+        copied = false;
+      } finally {
+        document.body.removeChild(textarea);
       }
-      document.body.removeChild(textarea);
+      if (copied) {
+        showToast(successMsg);
+      } else {
+        showToast('Copierea automată nu a reușit. Deschide promptul și selectează textul manual.');
+      }
     }
 
     function showToast(message) {
@@ -4305,52 +4137,19 @@ Protocol obligatoriu de livrare:
     function updateHeaderProfileStatus() {
       const dot = document.getElementById('headerGeminiStatusDot');
       const badge = document.getElementById('profileConnectionBadge');
-      const isConnected = Boolean(
-        state.profile.googleAccountConnected &&
-        state.profile.googlePermissions?.geminiChat &&
-        (sessionStorage.getItem('BIBI_GEMINI_API_KEY') || '').trim()
-      );
-      const email = state.profile.googleAccountEmail || DRIVE_TARGET_EMAIL;
-
       if (dot) {
-        dot.className = isConnected
-          ? 'w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34D399]'
-          : 'w-2 h-2 rounded-full bg-rose-400';
+        dot.className = 'w-2 h-2 rounded-full bg-amber-300 shadow-[0_0_8px_#FCD34D]';
       }
 
       if (badge) {
-        if (isConnected) {
-          badge.className = 'font-mono text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
-          badge.textContent = 'Cont Google Conectat ✓';
-        } else {
-          badge.className = 'font-mono text-[10px] px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40';
-          badge.textContent = 'Google Deconectat';
-        }
+        badge.className = 'font-mono text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-200 border border-amber-500/40';
+        badge.textContent = 'Gemini manual';
       }
 
       const authPill = document.getElementById('googleAuthPill');
-      const emailDisplay = document.getElementById('googleConnectedEmailDisplay');
-      const nameDisplay = document.getElementById('googleConnectedName');
-      const scopeText = document.getElementById('googleConnectedScopeText');
-      const disconnectBtn = document.getElementById('googleDisconnectBtn');
-
-      if (emailDisplay) emailDisplay.textContent = email;
-      if (nameDisplay) nameDisplay.textContent = state.profile.displayName || 'Sava Bianca Maria';
-
-      if (authPill && scopeText) {
-        if (isConnected) {
-          authPill.className = 'font-mono text-[10.5px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
-          authPill.textContent = '● Sesiune Activă';
-          scopeText.className = 'text-[11px] text-emerald-300/90 mt-0.5';
-          scopeText.textContent = '✓ Acces Gemini AI & Google Drive acordat agenților';
-          if (disconnectBtn) disconnectBtn.classList.remove('hidden');
-        } else {
-          authPill.className = 'font-mono text-[10.5px] px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40';
-          authPill.textContent = '● Deconectat';
-          scopeText.className = 'text-[11px] text-rose-300/90 mt-0.5';
-          scopeText.textContent = '⚠️ Agenții nu au acces la Gemini până nu te conectezi';
-          if (disconnectBtn) disconnectBtn.classList.add('hidden');
-        }
+      if (authPill) {
+        authPill.className = 'font-mono text-[10.5px] px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-200 border border-amber-500/40';
+        authPill.textContent = '● Copiere manuală';
       }
     }
 
@@ -4375,7 +4174,6 @@ Protocol obligatoriu de livrare:
     }
 
     function openProfileModal() {
-      document.getElementById('profileGoogleEmailInput').value = state.profile.googleAccountEmail || DRIVE_TARGET_EMAIL;
       document.getElementById('profileDisplayNameInput').value = state.profile.displayName || 'Sava Bianca Maria';
       document.getElementById('profileNewPinInput').value = '';
       document.getElementById('cloudyPermissionToggle').checked = state.profile.allowCloudyProposals !== false;
@@ -4404,72 +4202,16 @@ Protocol obligatoriu de livrare:
       modal.classList.remove('flex');
     }
 
-    function toggleGoogleGeminiLogin() {
-      const emailInput = document.getElementById('profileGoogleEmailInput');
-      if (emailInput) {
-        emailInput.focus();
-        emailInput.select();
-      }
-      connectGoogleAccountForGemini();
-    }
-
-    function connectGoogleAccountForGemini() {
-      const emailVal = (document.getElementById('profileGoogleEmailInput').value || '').trim();
-      if (!emailVal || !emailVal.includes('@')) {
-        showToast('Introdu o adresă validă de Google Mail (ex: savabianca23@stud.ase.ro)!');
-        return;
-      }
-
-      state.profile.googleAccountConnected = true;
-      state.profile.googleAccountEmail = DRIVE_TARGET_EMAIL;
-      state.profile.driveEmail = DRIVE_TARGET_EMAIL;
-      state.profile.googlePermissions.geminiChat = true;
-      document.getElementById('permGeminiChatCheckbox').checked = true;
-      document.getElementById('profileGoogleEmailInput').value = DRIVE_TARGET_EMAIL;
-      document.getElementById('googleConnectedEmailDisplay').textContent = DRIVE_TARGET_EMAIL;
-
-      persistState();
-      updateHeaderProfileStatus();
-      showToast(`✓ Contul Google (${DRIVE_TARGET_EMAIL}) a fost configurat pentru toți agenții.`);
-    }
-
-    function saveGeminiApiKey() {
-      const keyInput = document.getElementById('profileGeminiApiKeyInput');
-      const apiKey = (keyInput?.value || '').trim();
-      if (!apiKey) {
-        showToast('Introdu cheia API Gemini asociată contului savabianca23@stud.ase.ro.');
-        return;
-      }
-
-      sessionStorage.setItem('BIBI_GEMINI_API_KEY', apiKey);
-      state.profile.googleAccountConnected = true;
-      state.profile.googleAccountEmail = DRIVE_TARGET_EMAIL;
-      state.profile.driveEmail = DRIVE_TARGET_EMAIL;
-      state.profile.googlePermissions.geminiChat = true;
-      persistState();
-      updateHeaderProfileStatus();
-      keyInput.value = '';
-      showToast(`✓ Gemini este activ pentru toți agenții pe savabianca23@stud.ase.ro.`);
-    }
-
-    function disconnectGoogleAccountForGemini() {
-      state.profile.googleAccountConnected = false;
-      sessionStorage.removeItem('BIBI_GEMINI_API_KEY');
-      persistState();
-      updateHeaderProfileStatus();
-      showToast('Contul Google a fost deconectat. Agenții nu mai au acces la Gemini până la reconectare.');
-    }
-
     function updateGoogleAgentPermissions() {
       state.profile.googlePermissions = {
-        geminiChat: document.getElementById('permGeminiChatCheckbox').checked,
+        geminiChat: true,
         googleDrive: document.getElementById('permGoogleDriveCheckbox').checked,
         googleSearch: document.getElementById('permGoogleSearchCheckbox').checked,
         googleGems: document.getElementById('permGoogleGemsCheckbox').checked
       };
       persistState();
       updateHeaderProfileStatus();
-      showToast('✓ Permisiunile contului Google pentru agenți au fost actualizate!');
+      showToast('✓ Preferințele instrumentelor au fost actualizate!');
     }
 
     function toggleCloudyPermission(isAllowed) {
