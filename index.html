@@ -3187,6 +3187,13 @@ Structurează răspunsul cu:
                 </div>
 
                 <div class="md-content text-[13.5px] text-orange-50/95">
+                  ${!msg.isWelcome ? `
+                    <div class="mb-2.5 flex items-center gap-1.5">
+                      <span class="font-mono text-[9.5px] uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#34D399]/12 text-[#6EE7B7] border border-[#34D399]/30">
+                        ✓ Livrabil final
+                      </span>
+                    </div>
+                  ` : ''}
                   ${renderMarkdown(cleanText)}
                 </div>
 
@@ -3833,7 +3840,11 @@ Structurează răspunsul cu:
         return `Am pregătit planul de actualizare a interfeței (**${isGold ? 'Titanium Desert Gold' : 'Cosmic Orange'}**, **${isUltra ? 'Ultra Frosted Glass' : 'Standard Apple Glass'}**). Confirmă mai jos dacă dorești aplicarea:\n\n\`\`\`cloudy_action\n{\n  "actionType": "update_ui",\n  "summary": "Actualizare temă vizuală și intensitate Liquid Glass",\n  "accentTheme": "${isGold ? 'gold' : 'cosmic'}",\n  "glassIntensity": "${isUltra ? 'ultra' : 'standard'}",\n  "officeLayout": "standard"\n}\n\`\`\``;
       }
 
-      return `### Răspuns Structurat (${agent.shortName})\n\nAm procesat cerința ta pentru proiectul **„${proj}”** pe sesiunea Google (\`${connectedEmail}\`).\n\n- **Skill-uri active aplicate:** ${(agent.skills || []).join(', ')}\n- **Cerința analizată:** ${userText.slice(0, 180)}${userText.length > 180 ? '...' : ''}\n\nPoți pasa acest rezultat mai departe folosind butoanele de **Handoff** de mai jos!`;
+      if (agent.id === 'pm') {
+        return `## Livrabil Project Manager\n\n### Sarcină primită\n${userText}\n\n### Rezultatul analizei\n- **Obiectiv:** Structurarea cerinței proiectului și identificarea livrabilului final.\n- **Structură recomandată:** 1) Context și obiective; 2) Cerințe și barem; 3) Concepte teoretice; 4) Cercetare și surse; 5) Analiză/rezultate; 6) Concluzii și formatare finală.\n- **Regulă de limbă:** răspunsul proiectului va păstra limba cerinței.\n- **Skill-uri aplicate:** ${(agent.skills || []).join(', ')}\n\n### Brief de Research\nCaută informații riguroase și surse reale pentru obiectivul proiectului, cerințele și structura de mai sus. Extrage definiții, cadre teoretice, date verificabile și surse academice relevante; marchează clar concluziile care necesită referințe.\n\n### Cerințe pentru livrarea următoare\n- Confirmați baremul complet și numărul exact de pagini/cuvinte.\n- Furnizați cursuri, fișiere Word/PDF, linkuri sau alte materiale disponibile.\n- Menționați orice surse obligatorii impuse de profesor.\n\n## LIVRARE PENTRU URMĂTORUL AGENT\nPasează mai departe proiectul **„${proj}”**, structura pe 6 etape, baremul cunoscut și acest Brief de Research către Academic Researcher.`;
+      }
+
+      return `## Livrabil ${agent.shortName}\n\n### Sarcină primită\n${userText}\n\n### Lucrări executate\n- **Rol aplicat:** ${agent.fullName || agent.shortName}\n- **Skill-uri utilizate:** ${(agent.skills || []).join(', ') || 'Rol general'}\n- **Context:** proiectul **„${proj}”** pe sesiunea Google (\`${connectedEmail}\`).\n\n### Rezultat\nCererea a fost procesată conform instrucțiunilor rolului. Rezultatul complet trebuie verificat și completat cu informațiile suplimentare disponibile în proiect înainte de predarea către următorul agent.\n\n## LIVRARE PENTRU URMĂTORUL AGENT\nPasează obiectivul, cerința tratată, livrabilul de mai sus și materialele disponibile către următorul agent din flux.`;
     }
 
     async function sendUserMessage() {
@@ -3893,7 +3904,17 @@ Structurează răspunsul cu:
           ? `\nSkill-urile tale active: ${agent.skills.join(', ')}.`
           : '';
 
-        const systemInstructionText = `${agent.systemInstruction}${skillsLine}${extraContext}\n\nContext Proiect Activ: „${state.currentProject.name}” (Cont Google: ${state.profile.googleAccountEmail || DRIVE_TARGET_EMAIL}, Autor: Sava Bianca Maria). Dacă cerința utilizatorului este în limba engleză, răspunde în engleză; dacă este în română, răspunde în română.`;
+        const completionProtocol = `
+
+Protocol obligatoriu de livrare:
+1. Finalizează integral sarcina atribuită și afișează rezultatul complet direct în răspunsul de chat.
+2. Nu răspunde doar cu „gata”, „procesat” sau „poți continua”. Fiecare rezultat trebuie să conțină livrabilul real produs conform instruțiunilor și skill-urilor tale.
+3. Organizează răspunsul cu titluri clare, pași/sarcini executate, rezultat final și eventualele întrebări sau materiale lipsă.
+4. Dacă rolul este Project Manager, predă un livrabil complet pentru etapă: obiectiv, barem/cerințe, structura proiectului în capitole, limbă, livrabil final, fișiere necesare și Brief-ul de Research gata pentru următorul agent.
+5. La sfârșit, adaugă explicit secțiunea „LIVRARE PENTRU URMĂTORUL AGENT” cu informațiile esențiale care trebuie predate mai departe.
+6. Nu ascunde livrabilul în statusuri interne sau descrieri generale. Textul de mai jos este ceea ce utilizatorul va vedea în chat și va putea copia/preda agenților următori.`;
+
+        const systemInstructionText = `${agent.systemInstruction}${skillsLine}${extraContext}${completionProtocol}\n\nContext Proiect Activ: „${state.currentProject.name}” (Cont Google: ${state.profile.googleAccountEmail || DRIVE_TARGET_EMAIL}, Autor: Sava Bianca Maria). Dacă cerința utilizatorului este în limba engleză, răspunde în engleză; dacă este în română, răspunde în română.`;
 
         const payload = {
           contents: apiContents,
@@ -3939,6 +3960,7 @@ Structurează răspunsul cu:
             text: `🔒 **Contul Google este deconectat:** Deschide **Profilul Meu → Login Google & Acces Gemini** și conectează contul tău Gmail pentru a permite agenților să acceseze Gemini.`,
             timestamp: formatTime()
           });
+          persistState();
           state.agentStatuses[agentId] = {
             text: 'Necesită Login Google',
             state: 'idle'
