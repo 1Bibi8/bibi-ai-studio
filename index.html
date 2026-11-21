@@ -1816,16 +1816,10 @@ Structurează răspunsul cu:
 
     function getChatHistory(agentId = state.selectedAgentId) {
       if (!state.currentProject.chats[agentId]) {
-        const agent = getAgent(agentId);
-        const floorLabel = agent.floor === 'uni' ? 'Etaj 1 • UNI' : 'Etaj 2 • DEVELOP';
-        state.currentProject.chats[agentId] = [
-          {
-            role: 'model',
-            text: `Salut! Sunt **${agent.fullName}** (${floorLabel}) și lucrez cu tine la proiectul **„${state.currentProject.name}”** (Google Drive: \`${DRIVE_TARGET_EMAIL}\`).\n\n${agent.role}\n\nTrimite-mi cerința ta sau spune-mi direct dacă vrei să îmi ajustezi stilul sau skill-urile pentru acest task!`,
-            timestamp: formatTime(),
-            isWelcome: true
-          }
-        ];
+        state.currentProject.chats[agentId] = [];
+      } else {
+        state.currentProject.chats[agentId] = state.currentProject.chats[agentId]
+          .filter(msg => !msg.isWelcome);
       }
       return state.currentProject.chats[agentId];
     }
@@ -2754,9 +2748,10 @@ Structurează răspunsul cu:
       const devStrip = document.getElementById('developQuickStrip');
 
       if (isUni) {
-        primaryBtn.innerHTML = `<span>▲ Urcă la Develop (HR & Config)</span>`;
+        primaryBtn.classList.add('hidden');
         devStrip.classList.add('hidden');
       } else {
+        primaryBtn.classList.remove('hidden');
         primaryBtn.innerHTML = `<span>👥 + Angajează Agent Nou</span>`;
         devStrip.classList.remove('hidden');
       }
